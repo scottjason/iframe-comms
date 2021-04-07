@@ -11,7 +11,7 @@ function App() {
     window.addEventListener(
       "message",
       function (event) {
-        console.log(window);
+        console.log(window.parent);
         const isValidEvent = ALLOWED_ORIGINS.includes(event.origin);
         if (!isValidEvent || typeof event.data !== "string") {
           return null;
