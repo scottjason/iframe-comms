@@ -11,7 +11,6 @@ function App() {
     window.addEventListener(
       "message",
       function (event) {
-        console.log(window.parent);
         const isValidEvent =
           ALLOWED_ORIGINS.includes(event.origin) &&
           ALLOWED_ORIGINS.includes(window.parent.location);
