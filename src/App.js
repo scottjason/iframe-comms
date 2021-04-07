@@ -11,9 +11,11 @@ function App() {
     window.addEventListener(
       "message",
       function (event) {
-        console.log(event);
-        const isValidOrigin = ALLOWED_ORIGINS.includes(event.origin);
-        if (!isValidOrigin || typeof event.data !== "string") {
+        console.log(window.parent.location);
+        const isValidEvent =
+          ALLOWED_ORIGINS.includes(event.origin) &&
+          ALLOWED_ORIGINS.includes(window.parent.location);
+        if (!isValidEvent || typeof event.data !== "string") {
           return null;
         }
         const data = JSON.parse(event.data);
